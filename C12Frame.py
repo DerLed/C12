@@ -21,8 +21,10 @@ class C12Frame(tk.Frame):
 
         self.entry_D1.bind('<Return>', lambda event: self.entry_D2.focus())
         self.entry_D1.bind('<KP_Enter>', lambda event: self.entry_D2.focus())
-        self.entry_D2.bind('<Return>', lambda event: self.calc())
-        self.entry_D2.bind('<KP_Enter>', lambda event: self.calc())
+        self.entry_D2.bind('<Return>', self.set_focus_copy)
+        self.entry_D2.bind('<KP_Enter>', self.set_focus_copy)
+        self.btn_to_clipboard.bind('<Return>', lambda event: self.to_clipboard())
+        self.btn_to_clipboard.bind('<KP_Enter>', lambda event: self.to_clipboard())
 
         self.lbl_D1.grid(column=0, row=0)
         self.lbl_D2.grid(column=0, row=1)
@@ -31,6 +33,7 @@ class C12Frame(tk.Frame):
         self.btn_calc.grid(column=0, row=2)
         self.btn_to_clipboard.grid(column=1, row=2)
         self.result.grid(column=0, columnspan=2)
+
         self.entry_D1.focus()
 
     def calc(self):
@@ -65,11 +68,15 @@ class C12Frame(tk.Frame):
                               f'Толщина стенки: S = {(out_d-inner_d)/2} мм\n' \
                               f'Технологическая прибавка: С = {t_c12} мм'
 
-    def to_clipboard(self) -> None:
+    def to_clipboard(self):
         if t_c12:
             print(t_c12)
         r = tk.Tk()
         r.withdraw()
         r.clipboard_clear()
-        r.clipboard_append(t_c12)
+        r.clipboard_append(str(t_c12))
         r.destroy()
+
+    def set_focus_copy(self, event):
+        self.calc()
+        self.btn_to_clipboard.focus_set()
