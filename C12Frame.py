@@ -78,6 +78,7 @@ class C12Frame(tk.Frame):
         r.clipboard_clear()
         r.clipboard_append(str(t_c12))
         r.destroy()
+        self.statusbar["fg"] = 'green'
         self.statusbar["text"] = f"Скопировано в буфер {t_c12}"
 
     def set_focus_copy(self, event):
