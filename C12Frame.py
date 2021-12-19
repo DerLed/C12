@@ -10,6 +10,7 @@ class C12Frame(tk.Frame):
 
         self.lbl_D1 = tk.Label(self, text="Наружный диаметр")
         self.lbl_D2 = tk.Label(self, text="Внутрений диаметр")
+        self.statusbar = tk.Label(self, text="…", bd=1, relief=tk.SUNKEN, anchor=tk.W)
 
         self.entry_D1 = tk.Entry(self)
         self.entry_D2 = tk.Entry(self)
@@ -33,6 +34,7 @@ class C12Frame(tk.Frame):
         self.btn_calc.grid(column=0, row=2)
         self.btn_to_clipboard.grid(column=1, row=2)
         self.result.grid(column=0, columnspan=2)
+        self.statusbar.grid(column=0, columnspan=2, sticky="WE")
 
         self.entry_D1.focus()
 
@@ -76,6 +78,7 @@ class C12Frame(tk.Frame):
         r.clipboard_clear()
         r.clipboard_append(str(t_c12))
         r.destroy()
+        self.statusbar["text"] = f"Скопировано в буфер {t_c12}"
 
     def set_focus_copy(self, event):
         self.calc()
