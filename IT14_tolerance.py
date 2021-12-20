@@ -1,3 +1,6 @@
+MIN_DIAMETER = 1
+MAX_DIAMETER = 3150
+
 IT14_TOLERANCE = (
     (1.0, 250),
     (3.0, 300),
