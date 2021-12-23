@@ -81,7 +81,7 @@ class C12Frame(tk.Frame):
                     break
 
         t_c12 = round((tolerance_out_d + tolerance_inner_d)/2, 3)
-        print(tolerance_out_d, tolerance_inner_d, t_c12)
+        # print(tolerance_out_d, tolerance_inner_d, t_c12)
         self.result["text"] = f'Наружный диаметр: Da = {out_d} мм\n' \
                               f'Допуск на наружный диаметр: {tolerance_out_d} мм\n' \
                               f'Внутренний диаметр: Da = {inner_d} мм\n' \
@@ -96,7 +96,7 @@ class C12Frame(tk.Frame):
     def to_clipboard(self):
         global t_c12
         if t_c12:
-            print(t_c12)
+            # print(t_c12)
             r = tk.Tk()
             r.withdraw()
             r.clipboard_clear()
