@@ -1,6 +1,7 @@
 import tkinter as tk
 from IT14_tolerance import IT14_TOLERANCE as IT14
 from IT14_tolerance import MAX_DIAMETER, MIN_DIAMETER
+from copy_to_clipboard import copy_to_clipboard
 
 t_c12 = 0
 
@@ -96,12 +97,7 @@ class C12Frame(tk.Frame):
     def to_clipboard(self):
         global t_c12
         if t_c12:
-            # print(t_c12)
-            r = tk.Tk()
-            r.withdraw()
-            r.clipboard_clear()
-            r.clipboard_append(str(t_c12))
-            r.destroy()
+            copy_to_clipboard(t_c12)
             self.statusbar["fg"] = 'green'
             self.statusbar["text"] = f"Скопировано в буфер: {t_c12}"
             t_c12 = 0
