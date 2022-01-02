@@ -20,7 +20,7 @@ class C12Frame(tk.Frame):
         self.btn_calc = tk.Button(self, text="Вычислить", command=self.calc)
         self.btn_to_clipboard = tk.Button(self, text="Скопировать в буфер", command=self.to_clipboard)
 
-        self.result = tk.Label(self, text="", height=6, justify=tk.LEFT)
+        self.result = tk.Label(self, text="", height=6, justify=tk.LEFT, width=70)
 
         self.entry_D1.bind('<Return>', lambda event: self.entry_D2.focus())
         self.entry_D1.bind('<KP_Enter>', lambda event: self.entry_D2.focus())
