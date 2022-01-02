@@ -8,7 +8,7 @@ from sigma_steel_frame import SigmaSteelFrame
 class App(tk.Tk):
     def __init__(self):
         super().__init__()
-        self.geometry('520x250')
+        self.geometry('400x250')
         self.resizable(width=False, height=False)
         self.title("C12 Технологичесая прибавка к толщине")
         self.tab_control = ttk.Notebook(self)
