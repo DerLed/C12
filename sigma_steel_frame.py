@@ -46,7 +46,7 @@ class SigmaSteelFrame(tk.Frame):
     def calc_sigma_steel(self):
         try:
             temp_calc = int(self.entry_temp_calc.get())
-            pressure_calc = float(self.entry_pressure_calc.get())
+            pressure_calc = float(self.entry_pressure_calc.get().replace(',', '.'))
             select_mat = self.combo_steel_mark_list.get()
         except ValueError:
             self.entry_temp_calc.delete(0, tk.END)

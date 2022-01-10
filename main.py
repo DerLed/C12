@@ -8,9 +8,10 @@ from sigma_steel_frame import SigmaSteelFrame
 class App(tk.Tk):
     def __init__(self):
         super().__init__()
+        self.iconbitmap(r'favicon.ico')
         self.geometry('400x250')
         self.resizable(width=False, height=False)
-        self.title("C12 Технологичесая прибавка к толщине")
+        self.title("Прибавка и допускаемые напряжения")
         self.tab_control = ttk.Notebook(self)
 
         self.c12frame = C12Frame(self.tab_control)
@@ -19,7 +20,7 @@ class App(tk.Tk):
         self.tab_control.add(self.c12frame, text='C12 Технологичесая\nприбавка к толщине')
         self.tab_control.add(self.tense_steel_frame, text='Допускаемые напряжения\nпо ГОСТ Р 34233.1-2017')
 
-        self.tab_control.pack(expand=True, fill='x', anchor='center')
+        self.tab_control.pack(expand=True, fill='x', anchor='center', side=tk.TOP)
 
         #self.tense_steel_frame = SigmaSteelFrame(self)
         #self.c12frame.pack()

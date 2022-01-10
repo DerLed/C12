@@ -11,7 +11,7 @@ class C12Frame(tk.Frame):
         super().__init__(master)
 
         self.lbl_D1 = tk.Label(self, text="Наружный диаметр")
-        self.lbl_D2 = tk.Label(self, text="Внутрений диаметр")
+        self.lbl_D2 = tk.Label(self, text="Толщина стенки")
         self.statusbar = tk.Label(self, text="…", bd=1, relief=tk.SUNKEN, anchor=tk.W)
 
         self.entry_D1 = tk.Entry(self, justify="right")
@@ -52,6 +52,8 @@ class C12Frame(tk.Frame):
             self.entry_D2.delete(0, tk.END)
             self.statusbar["text"] = "Вводите в поля только цифры"
             return
+
+        inner_d = out_d - 2 * inner_d
 
         if out_d > MAX_DIAMETER:
             self.statusbar["fg"] = 'red'
